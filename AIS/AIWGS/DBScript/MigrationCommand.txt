@@ -1,0 +1,4 @@
+
+python manage.py makemigrations 
+python manage.py migrate AIWGS zero --fake
+python manage.py migrate

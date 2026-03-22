@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 from django.conf import settings
 
@@ -153,3 +154,6 @@ CUSTOM_JWT = {
     "AUDIENCE" : "AIS",
     "ISSUER": "SHOEB_LIZA"
 }
+
+MEDIA_URL = "/Media/"
+MEDIA_ROOT = os.path.join(BASE_DIR,'Media')
