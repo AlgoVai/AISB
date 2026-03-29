@@ -94,11 +94,23 @@ class Modules(models.Model):
         ordering = ["-moduleId"]
 
 
+class Menus(models.Model):
+    MenueId = models.AutoField(primary_key=True)
+    MenueName = models.CharField(max_length=500)
+    ModuleId = models.ForeignKey(Modules,on_delete=models.CASCADE)
+    MenusUrl = models.CharField(max_length=500)
+    CreatedAt = models.DateTimeField()
+    class Meta:
+        db_table = "Menus"
+        ordering = ["MenueId"]
+
+
 class Permissions(models.Model):
     permissionId = models.AutoField(primary_key=True)
     codeName = models.CharField(max_length=200)
     Name = models.CharField(max_length=500)
     modeuleId = models.ForeignKey(Modules,on_delete=models.CASCADE)
+    MenuesId = models.ForeignKey(Menus,on_delete=models.CASCADE)
     httpMethod = models.CharField(max_length=1000)
     urlPatter  = models.CharField(null=True)
     IsActive = models.BooleanField(default=False)
